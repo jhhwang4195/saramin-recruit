@@ -21,7 +21,7 @@ def saramin():
     keywords = ['devops', 'ansible', 'github', '소켓', '패킷', 'docker', 'snmp', 'netconf', 
 	'rest', 'slack', 'jenkins', 'KVM', '오픈스택', 'openstack', 'curl', '오픈소스', 
 	'프로토콜', 'Multithread', 'Multi thread', '멀티스레드', 'Network Programming', 
-	'TCP/IP' '네트워크', 'network']
+	'TCP/IP', '네트워크', 'network']
 	
     f = open(OUTPUT_FILE, "a")
     for keyword in keywords:
