@@ -11,7 +11,7 @@ SARAMIN_URL = "http://api.saramin.co.kr/job-search?keywords=%s&count=100&sr=dire
 
 def my_print(f, prt):
 	print("{}" .format(prt))
-	f.write("{}" .format(prt))
+	f.write("{}\n" .format(prt))
 
 def delete_file():
     rm_command = "rm %s" % OUTPUT_FILE
@@ -25,9 +25,9 @@ def saramin():
 	
     f = open(OUTPUT_FILE, "a")
     for keyword in keywords:
-        my_print(f, "#################################################\n")
-        my_print(f, "#%s\n" % keyword)
-        my_print(f, "#################################################\n")
+        my_print(f, "#################################################")
+        my_print(f, "#%s" % keyword)
+        my_print(f, "#################################################")
 
         url = SARAMIN_URL % keyword
         r = get(url)
@@ -36,9 +36,9 @@ def saramin():
         for job in soup.find_all('job'):
             temp = job.find('company')
             company = temp.text.strip()
-            my_print(f, "%s, %s, %s\n" %(company, job.title.text, job.url.text))
+            my_print(f, "%s, %s, %s" %(company, job.title.text, job.url.text))
 
-        f.write("\n\n")
+        my_print(f, "\n\n")
 
     f.close()
 
